@@ -198,28 +198,33 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-  Column Announcement() {
-    return Column(
-      children: [
-        Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam bibendum maximus lorem. ',
-          style: GoogleFonts.inter(
-            fontSize: 13,
-            fontWeight: FontWeight.w400,
+  InkWell Announcement() {
+    return InkWell(
+      onTap: () {
+        Get.toNamed(Routes.ANNOUNCEMENT);
+      },
+      child: Column(
+        children: [
+          Text(
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam bibendum maximus lorem. ',
+            style: GoogleFonts.inter(
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+            ),
           ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Container(
-          width: 300,
-          height: 1,
-          color: Color.fromARGB(255, 205, 205, 205),
-        ),
-        SizedBox(
-          height: 10,
-        )
-      ],
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 300,
+            height: 1,
+            color: Color.fromARGB(255, 205, 205, 205),
+          ),
+          SizedBox(
+            height: 10,
+          )
+        ],
+      ),
     );
   }
 

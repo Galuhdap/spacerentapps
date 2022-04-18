@@ -308,7 +308,7 @@ class BookingFromView extends GetView<BookingFromController> {
                 padding: const EdgeInsets.only(left: 10),
                 child: InkWell(
                   onTap: () {
-                    Get.toNamed(Routes.ROOM_LIST);
+                    Get.toNamed(Routes.BOOKINGS);
                   },
                   child: Container(
                     width: 290,

@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/announcement/bindings/announcement_binding.dart';
+import '../modules/announcement/views/announcement_view.dart';
 import '../modules/bookingFrom/bindings/booking_from_binding.dart';
 import '../modules/bookingFrom/views/booking_from_view.dart';
 import '../modules/bookings/bindings/bookings_binding.dart';
@@ -28,42 +30,65 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => HomeView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: HomeBinding(),
     ),
     GetPage(
       name: _Paths.DASBOARD,
       page: () => DasboardView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: DasboardBinding(),
     ),
     GetPage(
       name: _Paths.BOOKINGS,
       page: () => BookingsView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: BookingsBinding(),
     ),
     GetPage(
       name: _Paths.PROFILE,
       page: () => ProfileView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: ProfileBinding(),
     ),
     GetPage(
       name: _Paths.BOOKING_FROM,
       page: () => BookingFromView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: BookingFromBinding(),
     ),
     GetPage(
       name: _Paths.ROOM_LIST,
       page: () => RoomListView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: RoomListBinding(),
     ),
     GetPage(
       name: _Paths.ROOM,
       page: () => RoomView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: RoomBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN,
       page: () => LoginView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.ANNOUNCEMENT,
+      page: () => AnnouncementView(),
+      transition: Transition.fadeIn,
+      transitionDuration: Duration(milliseconds: 400),
+      binding: AnnouncementBinding(),
     ),
   ];
 }

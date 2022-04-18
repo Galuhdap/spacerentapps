@@ -11,6 +11,7 @@ abstract class Routes {
   static const ROOM_LIST = _Paths.ROOM_LIST;
   static const ROOM = _Paths.ROOM;
   static const LOGIN = _Paths.LOGIN;
+  static const ANNOUNCEMENT = _Paths.ANNOUNCEMENT;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const ROOM_LIST = '/room-list';
   static const ROOM = '/room';
   static const LOGIN = '/login';
+  static const ANNOUNCEMENT = '/announcement';
 }
