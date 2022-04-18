@@ -200,24 +200,23 @@ class BookingFromView extends GetView<BookingFromController> {
                     SizedBox(
                       height: 30,
                     ),
-//                     Obx( () => DropdownButton(
-//                       hint: Text(
-//                         'Book Type',
-//                       ),
-//                       onChanged: (newValue) {
-//                         controller.setSelected(newValue);
-//                       },
-//                       value: controller.selected.value,
-//                       items: controller.listType.map((selectedType) {
-//                         return DropdownMenuItem(
-//                           child: new Text(
-//                             selectedType,
-//                           ),
-//                           value: selectedType,
-//                         );
-//                       }).toList(),
-//                     )
-// ),
+                    Obx(() => DropdownButton(
+                          hint: Text(
+                            'Book Type',
+                          ),
+                          onChanged: (String? newValue) {
+                            controller.setSelected(newValue!);
+                          },
+                          value: controller.selected.value,
+                          items: controller.listType.map((selectedType) {
+                            return DropdownMenuItem(
+                              child: new Text(
+                                selectedType,
+                              ),
+                              value: selectedType,
+                            );
+                          }).toList(),
+                        )),
                     SizedBox(
                       height: 30,
                     ),
