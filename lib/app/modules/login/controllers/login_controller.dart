@@ -1,20 +1,13 @@
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  //TODO: Implement LoginController
+  var isLoading = false.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void loading() async {
+    isLoading.value = true;
+    await Future.delayed(Duration(seconds: 3), () {
+      isLoading.value = false;
+      Get.toNamed('/dasboard');
+    });
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

@@ -17,7 +17,7 @@ class LoginView extends GetView<LoginController> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(40, 100, 40, 40),
+                padding: const EdgeInsets.fromLTRB(40, 150, 40, 40),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,49 +45,64 @@ class LoginView extends GetView<LoginController> {
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 50,
               ),
               InkWell(
-                onTap: () {
-                  Get.toNamed(Routes.DASBOARD);
-                },
-                child: Container(
-                  width: 280,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 255, 0, 0),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 55, right: 10),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 25,
-                          height: 25,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/img/icongoogle.png"),
-                              fit: BoxFit.cover,
+                  onTap: () {
+                    controller.loading();
+                  },
+                  child: Obx(
+                    () => controller.isLoading.value
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Container(
+                            width: 280,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 239, 37, 37),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.3),
+                                  offset: Offset(1, 3),
+                                  blurRadius: 7,
+                                  spreadRadius: 3,
+                                )
+                              ],
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 55, right: 10),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 25,
+                                    height: 25,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/img/icongoogle.png"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 17,
+                                  ),
+                                  Text(
+                                    'Login with Google',
+                                    style: GoogleFonts.inter(
+                                      fontSize: 15,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 17,
-                        ),
-                        Text(
-                          'Login with Google',
-                          style: GoogleFonts.inter(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
+                  ))
             ],
           ),
         ),
