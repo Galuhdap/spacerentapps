@@ -38,17 +38,6 @@ class RoomView extends GetView<RoomController> {
                   ),
                 ),
                 SizedBox(
-                  width: 120,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.format_list_bulleted_rounded,
-                    size: 30,
-                    color: Colors.blue,
-                  ),
-                ),
-                SizedBox(
                   height: 10,
                 ),
               ],
@@ -63,9 +52,9 @@ class RoomView extends GetView<RoomController> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    listRoom(),
-                    listRoom(),
-                    listRoom(),
+                    listRoom(img: AssetImage("assets/img/meet2.jpeg")),
+                    listRoom(img: AssetImage("assets/img/meet2.jpeg")),
+                    listRoom(img: AssetImage("assets/img/meet2.jpeg")),
                   ],
                 ),
               ),
@@ -153,15 +142,15 @@ class RoomView extends GetView<RoomController> {
     );
   }
 
-  Row listRoom() {
+  Row listRoom({img}) {
     return Row(
       children: [
         Container(
           width: 280,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Colors.grey,
-          ),
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey,
+              image: DecorationImage(image: img, fit: BoxFit.cover)),
         ),
         SizedBox(
           width: 20,

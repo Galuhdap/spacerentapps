@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:spacerent_app/app/routes/app_pages.dart';
 
 import '../controllers/booking_from_controller.dart';
 
@@ -200,8 +201,21 @@ class BookingFromView extends GetView<BookingFromController> {
                     SizedBox(
                       height: 30,
                     ),
+                    Text(
+                      'Time',
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Obx(
                       () => Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 12, vertical: 3),
                         width: 400,
                         height: 50,
                         decoration: BoxDecoration(
@@ -209,27 +223,35 @@ class BookingFromView extends GetView<BookingFromController> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: DropdownButton(
-                            hint: Text(
-                              'Book Type',
-                            ),
-                            onChanged: (String? newValue) {
-                              controller.setSelected(newValue!);
-                            },
-                            value: controller.selected.value,
-                            items: controller.listType.map((selectedType) {
-                              return DropdownMenuItem(
-                                child: new Text(
-                                  selectedType,
-                                  style: GoogleFonts.inter(
-                                    fontSize: 18,
-                                    color: Color.fromARGB(255, 0, 0, 0),
+                          padding: const EdgeInsets.only(left: 7),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton(
+                              icon: Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black,
+                              ),
+                              iconSize: 30,
+                              isExpanded: true,
+                              hint: Text(
+                                'Book Type',
+                              ),
+                              onChanged: (String? newValue) {
+                                controller.setSelected(newValue!);
+                              },
+                              value: controller.selected.value,
+                              items: controller.listType.map((selectedType) {
+                                return DropdownMenuItem(
+                                  child: new Text(
+                                    selectedType,
+                                    style: GoogleFonts.inter(
+                                      fontSize: 18,
+                                      color: Color.fromARGB(255, 0, 0, 0),
+                                    ),
                                   ),
-                                ),
-                                value: selectedType,
-                              );
-                            }).toList(),
+                                  value: selectedType,
+                                );
+                              }).toList(),
+                            ),
                           ),
                         ),
                       ),
@@ -250,17 +272,20 @@ class BookingFromView extends GetView<BookingFromController> {
                     ),
                     Container(
                       width: double.infinity,
-                      height: 100,
+                      height: 150,
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 211, 211, 211),
                         borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.white, width: 2),
                       ),
                       child: TextField(
                         autocorrect: false,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                              )),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
@@ -277,12 +302,14 @@ class BookingFromView extends GetView<BookingFromController> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Get.toNamed(Routes.ROOM_LIST);
+                  },
                   child: Container(
                     width: 290,
                     height: 55,
