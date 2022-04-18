@@ -37,14 +37,6 @@ class RoomListView extends GetView<RoomListController> {
               SizedBox(
                 width: 120,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.add,
-                  size: 30,
-                  color: Colors.blue,
-                ),
-              ),
             ],
           ),
           SizedBox(
@@ -58,18 +50,22 @@ class RoomListView extends GetView<RoomListController> {
                 shrinkWrap: true,
                 children: <Widget>[
                   listRoom(
+                    img: AssetImage("assets/img/room.jpeg"),
                     txt1: 'Meeting Room 1',
                     txt2: 'Main Building | 1st Floor | 5 people',
                   ),
                   listRoom(
+                    img: AssetImage("assets/img/meet2.jpeg"),
                     txt1: 'Meeting Room 2',
                     txt2: 'Main Building | 1st Floor | 5 people',
                   ),
                   listRoom(
+                    img: AssetImage("assets/img/meet3.jpeg"),
                     txt1: 'Meeting Room 3',
                     txt2: 'Main Building | 1st Floor | 5 people',
                   ),
                   listRoom(
+                    img: AssetImage("assets/img/meet4.jpeg"),
                     txt1: 'Meeting Room 3',
                     txt2: 'Main Building | 1st Floor | 5 people',
                   ),
@@ -82,7 +78,7 @@ class RoomListView extends GetView<RoomListController> {
     ));
   }
 
-  InkWell listRoom({txt1, txt2}) {
+  InkWell listRoom({txt1, txt2, img}) {
     return InkWell(
       onTap: () {
         Get.toNamed(Routes.ROOM);
@@ -95,6 +91,10 @@ class RoomListView extends GetView<RoomListController> {
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: img,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           SizedBox(
