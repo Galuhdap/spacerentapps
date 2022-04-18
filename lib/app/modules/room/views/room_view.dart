@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:spacerent_app/app/routes/app_pages.dart';
 
 import '../controllers/room_controller.dart';
 
@@ -119,20 +120,25 @@ class RoomView extends GetView<RoomController> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
-                    child: Container(
-                      width: 290,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'Book This Room',
-                          style: GoogleFonts.inter(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                    child: InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.BOOKING_FROM);
+                      },
+                      child: Container(
+                        width: 290,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Book This Room',
+                            style: GoogleFonts.inter(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

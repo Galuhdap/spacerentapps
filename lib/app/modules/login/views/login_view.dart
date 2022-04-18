@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:spacerent_app/app/routes/app_pages.dart';
 
 import '../controllers/login_controller.dart';
 
@@ -47,7 +48,9 @@ class LoginView extends GetView<LoginController> {
                 height: 100,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(Routes.DASBOARD);
+                },
                 child: Container(
                   width: 280,
                   height: 60,

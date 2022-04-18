@@ -29,7 +29,7 @@ class BookingsView extends GetView<BookingsController> {
               ),
               IconButton(
                 onPressed: () {
-                  Get.to(BookingView());
+                  Get.toNamed(Routes.ROOM_LIST);
                 },
                 icon: Icon(
                   Icons.add,

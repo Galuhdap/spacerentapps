@@ -34,17 +34,6 @@ class BookingFromView extends GetView<BookingFromController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
-                    width: 120,
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.format_list_bulleted_rounded,
-                      size: 30,
-                      color: Colors.blue,
-                    ),
-                  ),
                 ],
               ),
               SizedBox(
@@ -94,35 +83,14 @@ class BookingFromView extends GetView<BookingFromController> {
                       ),
                     ),
                     SizedBox(
-                      height: 3,
+                      height: 5,
                     ),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 211, 211, 211),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: TextField(
-                        autocorrect: false,
-                        style: GoogleFonts.inter(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 0, 0, 0),
-                        ),
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                            ),
-                          ),
-                          hintText: "enter your name here",
-                          hintStyle: GoogleFonts.inter(
-                            fontSize: 15,
-                            color: Color.fromARGB(255, 150, 149, 149),
-                          ),
-                        ),
+                    Text(
+                      'Aldi Permana Etika Putra',
+                      style: GoogleFonts.inter(
+                        fontSize: 18,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     SizedBox(
@@ -232,107 +200,24 @@ class BookingFromView extends GetView<BookingFromController> {
                     SizedBox(
                       height: 30,
                     ),
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Tanggal Selesai',
-                              style: GoogleFonts.inter(
-                                fontSize: 13,
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Container(
-                              width: 180,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 211, 211, 211),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 10, right: 10),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '20 Januari 2022',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 150, 149, 149),
-                                      ),
-                                    ),
-                                    InkWell(
-                                        onTap: () {},
-                                        child: Image.asset(
-                                            'assets/img/iconcalender.png')),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Jam Selesai',
-                              style: GoogleFonts.inter(
-                                fontSize: 13,
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 3,
-                            ),
-                            Container(
-                              height: 50,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 211, 211, 211),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 10),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '08:00',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 150, 149, 149),
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.timer,
-                                        color: Color(0xfffB4B4B4),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+//                     Obx( () => DropdownButton(
+//                       hint: Text(
+//                         'Book Type',
+//                       ),
+//                       onChanged: (newValue) {
+//                         controller.setSelected(newValue);
+//                       },
+//                       value: controller.selected.value,
+//                       items: controller.listType.map((selectedType) {
+//                         return DropdownMenuItem(
+//                           child: new Text(
+//                             selectedType,
+//                           ),
+//                           value: selectedType,
+//                         );
+//                       }).toList(),
+//                     )
+// ),
                     SizedBox(
                       height: 30,
                     ),
@@ -365,7 +250,8 @@ class BookingFromView extends GetView<BookingFromController> {
                               color: Colors.white,
                             ),
                           ),
-                          hintText: "enter your name here",
+                          hintText:
+                              "enter any notes about your booking here...",
                         ),
                         keyboardType: TextInputType.multiline,
                         maxLines: 99,
@@ -373,7 +259,34 @@ class BookingFromView extends GetView<BookingFromController> {
                     ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    width: 290,
+                    height: 55,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Confirm Booking',
+                        style: GoogleFonts.inter(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

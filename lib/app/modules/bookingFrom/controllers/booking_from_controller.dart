@@ -1,20 +1,9 @@
 import 'package:get/get.dart';
 
 class BookingFromController extends GetxController {
-  //TODO: Implement BookingFromController
+  final selected = "some book type".obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  void setSelected(String value) {
+    selected.value = value;
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }
