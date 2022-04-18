@@ -200,23 +200,40 @@ class BookingFromView extends GetView<BookingFromController> {
                     SizedBox(
                       height: 30,
                     ),
-                    Obx(() => DropdownButton(
-                          hint: Text(
-                            'Book Type',
+                    Obx(
+                      () => Container(
+                        width: 400,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 211, 211, 211),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: DropdownButton(
+                            hint: Text(
+                              'Book Type',
+                            ),
+                            onChanged: (String? newValue) {
+                              controller.setSelected(newValue!);
+                            },
+                            value: controller.selected.value,
+                            items: controller.listType.map((selectedType) {
+                              return DropdownMenuItem(
+                                child: new Text(
+                                  selectedType,
+                                  style: GoogleFonts.inter(
+                                    fontSize: 18,
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                  ),
+                                ),
+                                value: selectedType,
+                              );
+                            }).toList(),
                           ),
-                          onChanged: (String? newValue) {
-                            controller.setSelected(newValue!);
-                          },
-                          value: controller.selected.value,
-                          items: controller.listType.map((selectedType) {
-                            return DropdownMenuItem(
-                              child: new Text(
-                                selectedType,
-                              ),
-                              value: selectedType,
-                            );
-                          }).toList(),
-                        )),
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height: 30,
                     ),
