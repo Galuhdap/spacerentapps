@@ -12,7 +12,7 @@ class BookingsView extends GetView<BookingsController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-      padding: const EdgeInsets.only(right: 20, left: 20, top: 20),
+      padding: const EdgeInsets.only(right: 20, left: 20, top: 5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
