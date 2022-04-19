@@ -135,16 +135,18 @@ class BookingFromView extends GetView<BookingFromController> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      '20 Januari 2022',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 150, 149, 149),
-                                      ),
-                                    ),
+                                    Obx(() => Text(
+                                          '${controller.calender.value.day} : ${controller.calender.value.month} : ${controller.calender.value.year}',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 18,
+                                            color: Color.fromARGB(
+                                                255, 150, 149, 149),
+                                          ),
+                                        )),
                                     InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          controller.kalender();
+                                        },
                                         child: Image.asset(
                                             'assets/img/iconcalender.png')),
                                   ],
@@ -188,24 +190,26 @@ class BookingFromView extends GetView<BookingFromController> {
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
                                 child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      '08:00',
-                                      style: GoogleFonts.inter(
-                                        fontSize: 15,
-                                        color:
-                                            Color.fromARGB(255, 150, 149, 149),
+                                    Obx(
+                                      () => Text(
+                                        '${controller.time.value.hour} - ${controller.time.value.minute}',
+                                        style: GoogleFonts.inter(
+                                          fontSize: 18,
+                                          color: Color.fromARGB(
+                                              255, 150, 149, 149),
+                                        ),
                                       ),
                                     ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: Icon(
-                                        Icons.timer,
-                                        color: Color(0xfffB4B4B4),
-                                      ),
+                                    SizedBox(
+                                      width: 14,
                                     ),
+                                    InkWell(
+                                        onTap: () {
+                                          controller.chosetime();
+                                        },
+                                        child: Image.asset(
+                                            'assets/img/timericon.png')),
                                   ],
                                 ),
                               ),
