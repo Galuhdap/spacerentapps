@@ -9,6 +9,7 @@ import '../controllers/login_controller.dart';
 class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
+    var ctrl = Get.put(LoginController());
     return Scaffold(
       backgroundColor: Color(0xfff74B9FF),
       body: SingleChildScrollView(
@@ -57,7 +58,7 @@ class LoginView extends GetView<LoginController> {
               ),
               InkWell(
                   onTap: () {
-                    controller.loading();
+                    ctrl.loading();
                   },
                   child: Obx(
                     () => controller.isLoading.value
