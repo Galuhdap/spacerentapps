@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BookingFromController extends GetxController {
-  final selected = "satu".obs;
+  final selected = "satu jam".obs;
   var time = TimeOfDay.now().obs;
   var calender = DateTime.now().obs;
 
-  List<String> listType = ['satu', 'dua'];
+  List<String> listType = ['satu jam', 'dua jam', 'tiga jam', 'empat jam'];
 
   void setSelected(String value) {
     selected.value = value;

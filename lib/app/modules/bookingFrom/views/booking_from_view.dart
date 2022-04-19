@@ -139,8 +139,7 @@ class BookingFromView extends GetView<BookingFromController> {
                                           '${controller.calender.value.day} : ${controller.calender.value.month} : ${controller.calender.value.year}',
                                           style: GoogleFonts.inter(
                                             fontSize: 18,
-                                            color: Color.fromARGB(
-                                                255, 150, 149, 149),
+                                            color: Color.fromARGB(255, 0, 0, 0),
                                           ),
                                         )),
                                     InkWell(
@@ -196,8 +195,7 @@ class BookingFromView extends GetView<BookingFromController> {
                                         '${controller.time.value.hour} - ${controller.time.value.minute}',
                                         style: GoogleFonts.inter(
                                           fontSize: 18,
-                                          color: Color.fromARGB(
-                                              255, 150, 149, 149),
+                                          color: Color.fromARGB(255, 0, 0, 0),
                                         ),
                                       ),
                                     ),
@@ -287,58 +285,11 @@ class BookingFromView extends GetView<BookingFromController> {
                     SizedBox(
                       height: 30,
                     ),
-                    Text(
-                      'Catatan',
-                      style: GoogleFonts.inter(
-                        fontSize: 13,
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 150,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 211, 211, 211),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.white, width: 2),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            offset: Offset(0.0, 4.0),
-                            blurRadius: 4,
-                            spreadRadius: 2,
-                          )
-                        ],
-                      ),
-                      child: TextField(
-                        autocorrect: false,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                color: Colors.white,
-                              )),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                            ),
-                          ),
-                          hintText:
-                              "enter any notes about your booking here...",
-                        ),
-                        keyboardType: TextInputType.multiline,
-                        maxLines: 99,
-                      ),
-                    ),
                   ],
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 200,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
