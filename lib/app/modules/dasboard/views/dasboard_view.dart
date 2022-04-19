@@ -10,6 +10,9 @@ import '../controllers/dasboard_controller.dart';
 class DasboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final home = GlobalKey<NavigatorState>();
+    final bookings = GlobalKey<NavigatorState>();
+    final profile = GlobalKey<NavigatorState>();
     return GetBuilder<DasboardController>(
       builder: (controller) {
         return Scaffold(
@@ -17,9 +20,27 @@ class DasboardView extends StatelessWidget {
               child: IndexedStack(
             index: controller.tabIndex,
             children: [
-              HomeView(),
-              BookingsView(),
-              ProfileView(),
+              Navigator(
+                key: home,
+                onGenerateRoute: (route) => MaterialPageRoute(
+                  settings: route,
+                  builder: (context) => HomeView(),
+                ),
+              ),
+              Navigator(
+                key: bookings,
+                onGenerateRoute: (route) => MaterialPageRoute(
+                  settings: route,
+                  builder: (context) => BookingsView(),
+                ),
+              ),
+              Navigator(
+                key: profile,
+                onGenerateRoute: (route) => MaterialPageRoute(
+                  settings: route,
+                  builder: (context) => ProfileView(),
+                ),
+              ),
             ],
           )),
           bottomNavigationBar: BottomNavigationBar(
