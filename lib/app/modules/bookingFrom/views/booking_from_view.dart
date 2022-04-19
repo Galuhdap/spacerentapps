@@ -114,7 +114,7 @@ class BookingFromView extends GetView<BookingFromController> {
                               height: 3,
                             ),
                             Container(
-                              width: 180,
+                              width: 170,
                               height: 50,
                               decoration: BoxDecoration(
                                 color: Color.fromARGB(255, 240, 236, 236),
@@ -174,7 +174,7 @@ class BookingFromView extends GetView<BookingFromController> {
                             ),
                             Container(
                               height: 50,
-                              width: 100,
+                              width: 110,
                               decoration: BoxDecoration(
                                 color: Color.fromARGB(255, 240, 236, 236),
                                 borderRadius: BorderRadius.circular(10),
@@ -202,7 +202,7 @@ class BookingFromView extends GetView<BookingFromController> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 14,
+                                      width: 13,
                                     ),
                                     InkWell(
                                         onTap: () {
@@ -344,7 +344,7 @@ class BookingFromView extends GetView<BookingFromController> {
                 padding: const EdgeInsets.only(left: 10),
                 child: InkWell(
                   onTap: () {
-                    Get.toNamed(Routes.BOOKINGS);
+                    Get.toNamed(Routes.DASBOARD);
                   },
                   child: Container(
                     width: 290,
