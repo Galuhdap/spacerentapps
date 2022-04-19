@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:spacerent_app/app/routes/app_pages.dart';
 
 import '../controllers/bookings_controller.dart';
-import 'booking_view.dart';
 
 class BookingsView extends GetView<BookingsController> {
   @override
@@ -42,37 +41,60 @@ class BookingsView extends GetView<BookingsController> {
           SizedBox(
             height: 40,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Meeting Room 12',
-                style: GoogleFonts.inter(
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontWeight: FontWeight.bold,
+          InkWell(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0))),
+                    backgroundColor: Color.fromARGB(255, 255, 255, 255),
+                    content: Container(
+                      height: 220,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/img/qr2.png"),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Meeting Room 12',
+                  style: GoogleFonts.inter(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 5,
-              ),
-              Text(
-                '15 Febuary 2020,  12.30 - 14.30',
-                style: GoogleFonts.inter(
-                  fontSize: 15,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontWeight: FontWeight.w400,
+                SizedBox(
+                  height: 5,
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: 310,
-                height: 1,
-                color: Colors.grey,
-              )
-            ],
+                Text(
+                  '15 Febuary 2020,  12.30 - 14.30',
+                  style: GoogleFonts.inter(
+                    fontSize: 15,
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 310,
+                  height: 1,
+                  color: Colors.grey,
+                )
+              ],
+            ),
           )
         ],
       ),
