@@ -117,8 +117,16 @@ class BookingFromView extends GetView<BookingFromController> {
                               width: 180,
                               height: 50,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 211, 211, 211),
+                                color: Color.fromARGB(255, 240, 236, 236),
                                 borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    offset: Offset(0.0, 4.0),
+                                    blurRadius: 4,
+                                    spreadRadius: 1,
+                                  )
+                                ],
                               ),
                               child: Padding(
                                 padding:
@@ -166,8 +174,16 @@ class BookingFromView extends GetView<BookingFromController> {
                               height: 50,
                               width: 100,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 211, 211, 211),
+                                color: Color.fromARGB(255, 240, 236, 236),
                                 borderRadius: BorderRadius.circular(10),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.3),
+                                    offset: Offset(0.0, 4.0),
+                                    blurRadius: 4,
+                                    spreadRadius: 1,
+                                  )
+                                ],
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 10),
@@ -219,8 +235,16 @@ class BookingFromView extends GetView<BookingFromController> {
                         width: 400,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 211, 211, 211),
+                          color: Color.fromARGB(255, 240, 236, 236),
                           borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.3),
+                              offset: Offset(0.0, 4.0),
+                              blurRadius: 4,
+                              spreadRadius: 1,
+                            )
+                          ],
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 7),
@@ -277,6 +301,14 @@ class BookingFromView extends GetView<BookingFromController> {
                         color: Color.fromARGB(255, 211, 211, 211),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.white, width: 2),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.3),
+                            offset: Offset(0.0, 4.0),
+                            blurRadius: 4,
+                            spreadRadius: 2,
+                          )
+                        ],
                       ),
                       child: TextField(
                         autocorrect: false,
@@ -316,6 +348,14 @@ class BookingFromView extends GetView<BookingFromController> {
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          offset: Offset(0.0, 4.0),
+                          blurRadius: 4,
+                          spreadRadius: 2,
+                        )
+                      ],
                     ),
                     child: Center(
                       child: Text(

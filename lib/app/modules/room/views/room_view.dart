@@ -119,6 +119,14 @@ class RoomView extends GetView<RoomController> {
                         decoration: BoxDecoration(
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.3),
+                              offset: Offset(0.0, 4.0),
+                              blurRadius: 4,
+                              spreadRadius: 2,
+                            )
+                          ],
                         ),
                         child: Center(
                           child: Text(
@@ -147,10 +155,20 @@ class RoomView extends GetView<RoomController> {
       children: [
         Container(
           width: 280,
+          height: 180,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.grey,
-              image: DecorationImage(image: img, fit: BoxFit.cover)),
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.grey,
+            image: DecorationImage(image: img, fit: BoxFit.cover),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                offset: Offset(3.0, 5.0),
+                blurRadius: 4,
+                spreadRadius: 3,
+              )
+            ],
+          ),
         ),
         SizedBox(
           width: 20,

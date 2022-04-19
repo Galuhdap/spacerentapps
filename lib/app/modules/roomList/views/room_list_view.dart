@@ -89,12 +89,19 @@ class RoomListView extends GetView<RoomListController> {
           Container(
             height: 150,
             decoration: BoxDecoration(
-              color: Colors.grey,
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                 image: img,
                 fit: BoxFit.cover,
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  offset: Offset(0.0, 3.0),
+                  blurRadius: 4,
+                  spreadRadius: 3,
+                )
+              ],
             ),
           ),
           SizedBox(

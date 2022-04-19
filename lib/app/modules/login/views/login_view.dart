@@ -38,7 +38,15 @@ class LoginView extends GetView<LoginController> {
                           image: AssetImage("assets/img/meeting-room.png"),
                           fit: BoxFit.cover,
                         ),
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(50),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(.2),
+                            blurRadius: 9.0,
+                            spreadRadius: 2.0,
+                            offset: Offset(0.0, 5.0),
+                          ),
+                        ],
                       ),
                     )
                   ],

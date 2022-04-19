@@ -43,6 +43,14 @@ class ProfileView extends GetView<ProfileController> {
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                      offset: Offset(1, 3),
+                      blurRadius: 7,
+                      spreadRadius: 3,
+                    )
+                  ],
                 ),
                 child: Center(
                   child: Text(

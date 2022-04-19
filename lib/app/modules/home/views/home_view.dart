@@ -41,7 +41,15 @@ class HomeView extends GetView<HomeController> {
                               image: AssetImage("assets/img/meeting-room.png"),
                               fit: BoxFit.cover,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(.2),
+                                blurRadius: 9.0,
+                                spreadRadius: 2.0,
+                                offset: Offset(0.0, 5.0),
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(50),
                           ),
                         )
                       ],
@@ -172,15 +180,11 @@ class HomeView extends GetView<HomeController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.arrow_forward,
-                      size: 20,
-                    ),
-                  ),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.only(right: 40, left: 40),
@@ -234,33 +238,46 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-  Column listRooms({txt, img}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          width: 140,
-          height: 140,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: img,
-              fit: BoxFit.cover,
+  InkWell listRooms({txt, img}) {
+    return InkWell(
+      onTap: () {
+        Get.toNamed(Routes.ROOM_LIST);
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 140,
+            height: 140,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: img,
+                fit: BoxFit.cover,
+              ),
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  offset: Offset(0.0, 3.0),
+                  blurRadius: 5,
+                  spreadRadius: 2,
+                )
+              ],
             ),
-            color: Colors.grey,
-            borderRadius: BorderRadius.circular(20),
           ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          txt,
-          style: GoogleFonts.inter(
-            fontSize: 13,
-            fontWeight: FontWeight.w400,
+          SizedBox(
+            height: 10,
           ),
-        ),
-      ],
+          Text(
+            txt,
+            style: GoogleFonts.inter(
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
