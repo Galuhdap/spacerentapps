@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spacerent_app/app/routes/app_pages.dart';
 
+import '../../login/views/login_view.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
@@ -33,9 +34,9 @@ class ProfileView extends GetView<ProfileController> {
             SizedBox(
               height: 30,
             ),
-            InkWell(
-              onTap: () {
-                Get.toNamed('/login');
+            MaterialButton(
+              onPressed: () {
+                Get.offAll(LoginView());
               },
               child: Container(
                 width: 200,
