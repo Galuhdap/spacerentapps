@@ -12,6 +12,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/maps/bindings/maps_binding.dart';
+import '../modules/maps/views/maps_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/room/bindings/room_binding.dart';
@@ -89,6 +91,11 @@ class AppPages {
       transition: Transition.fadeIn,
       transitionDuration: Duration(milliseconds: 400),
       binding: AnnouncementBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAPS,
+      page: () => MapsView(),
+      binding: MapsBinding(),
     ),
   ];
 }
