@@ -27,8 +27,8 @@ class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(-6.200000, 106.816666),
+    zoom: 80.000,
   );
 
   static final CameraPosition _kLake = CameraPosition(
@@ -37,18 +37,27 @@ class MapSampleState extends State<MapSample> {
       tilt: 59.440717697143555,
       zoom: 19.151926040649414);
 
+  List<Marker> _Marker = [
+    Marker(markerId: MarkerId("1"), position: LatLng(-7.1109753, 112.1626759))
+  ];
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: GoogleMap(
-        mapType: MapType.hybrid,
+        mapType: MapType.terrain,
+        markers: _Marker.toSet(),
         initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
+        onPressed: () async {
+          final GoogleMapController controller = await _controller.future;
+          controller.animateCamera(
+              CameraUpdate.newLatLng(LatLng(-7.1109753, 112.1626759)));
+        },
         label: Text('To the lake!'),
         icon: Icon(Icons.directions_boat),
       ),
