@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "769623703585-859jj7r4drg4joscsfofnvi92pmp6vfl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spacerent_app",
+            "certificate_hash": "5392704fca717b2e1209dc663c9f342349cf591c"
+          }
+        },
+        {
           "client_id": "769623703585-a4fg65cnqr0gqtte1f9gof4rqs7dtoh0.apps.googleusercontent.com",
           "client_type": 3
         }
