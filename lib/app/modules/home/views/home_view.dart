@@ -4,6 +4,7 @@ import 'package:flutterfire_ui/database.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:spacerent_app/app/modules/bookings/views/bookings_view.dart';
 import 'package:spacerent_app/models/Room.dart';
 
 import '../../../routes/app_pages.dart';
@@ -12,6 +13,8 @@ import '../controllers/home_controller.dart';
 class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
+    var ctrl = Get.put(HomeController());
+    ctrl.init();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -62,79 +65,84 @@ class HomeView extends GetView<HomeController> {
                 Center(
                   child: Padding(
                     padding: EdgeInsets.only(top: 180),
-                    child: InkWell(
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.0))),
-                              backgroundColor:
-                                  Color.fromARGB(255, 255, 255, 255),
-                              content: Container(
-                                height: 220,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage("assets/img/qr2.png"),
-                                      fit: BoxFit.cover),
-                                ),
+                    child: Container(
+                      width: 310,
+                      height: 95,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            offset: Offset(0, 2),
+                            blurRadius: 5,
+                            spreadRadius: 3,
+                          )
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'My Next Booking',
+                              style: GoogleFonts.inter(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
                               ),
-                            );
-                          },
-                        );
-                      },
-                      child: Container(
-                        width: 310,
-                        height: 95,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              offset: Offset(0, 2),
-                              blurRadius: 5,
-                              spreadRadius: 3,
-                            )
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Obx(
+                              () => controller.isNextLoading.value
+                                  ? Text(
+                                      'Loading data...',
+                                      style: GoogleFonts.inter(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )
+                                  : (controller.nextBooking.value == null
+                                      ? Text('No booking available!',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ))
+                                      : InkWell(
+                                          onTap: () {
+                                            BookingsView.showBoxDetail(
+                                                controller.nextBooking.value!,
+                                                context);
+                                          },
+                                          child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  (controller.nextBooking.value!)
+                                                      .room
+                                                      .title,
+                                                  style: GoogleFonts.inter(
+                                                    fontSize: 17,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 5,
+                                                ),
+                                                Text(
+                                                  (controller.nextBooking.value!)
+                                                      .detail,
+                                                  style: GoogleFonts.inter(
+                                                    fontSize: 11,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ]))),
+                            ),
                           ],
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, top: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'My Next Booking',
-                                style: GoogleFonts.inter(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                'Meeting Room 21',
-                                style: GoogleFonts.inter(
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              Text(
-                                '20 April 2022,  12.30 - 14.30',
-                                style: GoogleFonts.inter(
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
                         ),
                       ),
                     ),

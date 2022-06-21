@@ -129,7 +129,7 @@ class RoomView extends GetView<RoomController> {
                     padding: const EdgeInsets.only(left: 10),
                     child: InkWell(
                       onTap: () {
-                        Get.toNamed(Routes.BOOKING_FROM);
+                        Get.toNamed(Routes.BOOKING_FROM, arguments: controller.data);
                       },
                       child: Container(
                         width: 290,

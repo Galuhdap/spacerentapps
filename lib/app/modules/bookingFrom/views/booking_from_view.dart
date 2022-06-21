@@ -49,7 +49,7 @@ class BookingFromView extends GetView<BookingFromController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Meeting Room 1',
+                      controller.data.title,
                       style: GoogleFonts.inter(
                         fontSize: 20,
                         color: Color.fromARGB(255, 0, 0, 0),
@@ -60,7 +60,7 @@ class BookingFromView extends GetView<BookingFromController> {
                       height: 5,
                     ),
                     Text(
-                      'Main Building | 1st Floor | 5 people',
+                      controller.data.caption,
                       style: GoogleFonts.inter(
                         fontSize: 10,
                         color: Color.fromARGB(255, 0, 0, 0),
@@ -79,7 +79,7 @@ class BookingFromView extends GetView<BookingFromController> {
                       height: 40,
                     ),
                     Text(
-                      'Nama Penyewa',
+                      'Tenant Name',
                       style: GoogleFonts.inter(
                         fontSize: 13,
                         color: Color.fromARGB(255, 0, 0, 0),
@@ -108,7 +108,7 @@ class BookingFromView extends GetView<BookingFromController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Tanggal Mulai',
+                              'Rental Date',
                               style: GoogleFonts.inter(
                                 fontSize: 13,
                                 color: Color.fromARGB(255, 0, 0, 0),
@@ -141,7 +141,7 @@ class BookingFromView extends GetView<BookingFromController> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Obx(() => Text(
-                                          '${controller.calender.value.day} : ${controller.calender.value.month} : ${controller.calender.value.year}',
+                                          controller.displayDate(),
                                           style: GoogleFonts.inter(
                                             fontSize: 18,
                                             color: Color.fromARGB(255, 0, 0, 0),
@@ -166,7 +166,7 @@ class BookingFromView extends GetView<BookingFromController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Jam Mulai',
+                              'Rental Time',
                               style: GoogleFonts.inter(
                                 fontSize: 13,
                                 color: Color.fromARGB(255, 0, 0, 0),
@@ -197,7 +197,7 @@ class BookingFromView extends GetView<BookingFromController> {
                                   children: [
                                     Obx(
                                       () => Text(
-                                        '${controller.time.value.hour} - ${controller.time.value.minute}',
+                                        controller.displayTime(),
                                         style: GoogleFonts.inter(
                                           fontSize: 18,
                                           color: Color.fromARGB(255, 0, 0, 0),
@@ -225,7 +225,7 @@ class BookingFromView extends GetView<BookingFromController> {
                       height: 30,
                     ),
                     Text(
-                      'Time',
+                      'Rental Duration',
                       style: GoogleFonts.inter(
                         fontSize: 13,
                         color: Color.fromARGB(255, 0, 0, 0),
@@ -300,7 +300,7 @@ class BookingFromView extends GetView<BookingFromController> {
                 padding: const EdgeInsets.only(left: 10),
                 child: InkWell(
                   onTap: () {
-                    ctrl.loading();
+                    ctrl.submit();
                   },
                   child: Obx(() => controller.isLoading.value
                         ? CircularProgressIndicator(

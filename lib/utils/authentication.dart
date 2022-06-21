@@ -7,7 +7,6 @@ class Authentication {
     FirebaseAuth auth = FirebaseAuth.instance;
 
     final GoogleSignIn googleSignIn = GoogleSignIn();
-
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await googleSignIn.signIn();
@@ -47,6 +46,8 @@ class Authentication {
 
     try {
       await FirebaseAuth.instance.signOut();
+      await googleSignIn.signOut();
+      await googleSignIn.disconnect();
       return true;
     } catch (e) {
       return false;

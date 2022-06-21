@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:spacerent_app/utils/authentication.dart';
 
@@ -18,7 +17,6 @@ class LoginController extends GetxController {
 
     String resp = await Authentication.signInWithGoogle();
 
-    debugPrint('resp: $resp');
 
     controller.close();
     isLoading.value = false;

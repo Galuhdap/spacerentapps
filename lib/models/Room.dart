@@ -36,4 +36,14 @@ class Room {
       lng: lng,
     );
   }
+
+  Map toJson() => {
+    'title': title,
+    'caption': caption,
+    'description': description,
+    'image_url': image_url,
+    'images_url': images_url,
+    'lat': lat,
+    'lng': lng,
+  };
 }
