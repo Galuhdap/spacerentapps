@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spacerent_app/app/routes/app_pages.dart';
+import 'package:spacerent_app/utils/authentication.dart';
 
 import '../controllers/booking_from_controller.dart';
 
@@ -87,7 +89,9 @@ class BookingFromView extends GetView<BookingFromController> {
                       height: 5,
                     ),
                     Text(
-                      'Aldi Permana Etika Putra',
+                      FirebaseAuth.instance.currentUser?.displayName
+                              .toString() ??
+                          "",
                       style: GoogleFonts.inter(
                         fontSize: 18,
                         color: Color.fromARGB(255, 0, 0, 0),
