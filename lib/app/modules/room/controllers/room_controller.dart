@@ -1,7 +1,10 @@
 import 'package:get/get.dart';
+import 'package:spacerent_app/models/Room.dart';
 
 class RoomController extends GetxController {
   //TODO: Implement RoomController
+
+  Room data = Get.arguments;
 
   final count = 0.obs;
   @override

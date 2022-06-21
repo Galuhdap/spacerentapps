@@ -46,16 +46,13 @@ class RoomView extends GetView<RoomController> {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 50),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: SizedBox(
-                height: 155, // constrain height
+                height: 170, // constrain height
                 child: ListView(
+                  // padding: const EdgeInsets.only(bottom: 10),
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    listRoom(img: AssetImage("assets/img/meet2.jpeg")),
-                    listRoom(img: AssetImage("assets/img/meet2.jpeg")),
-                    listRoom(img: AssetImage("assets/img/meet2.jpeg")),
-                  ],
+                  children: controller.data.images_url.map((e) => roomImage(img: NetworkImage(e))).toList(),
                 ),
               ),
             ),
@@ -68,7 +65,7 @@ class RoomView extends GetView<RoomController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Meeting Room 2',
+                    controller.data.title,
                     style: GoogleFonts.inter(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -78,7 +75,7 @@ class RoomView extends GetView<RoomController> {
                     height: 7,
                   ),
                   Text(
-                    'Main Building | 1st Floor | 5 people',
+                    controller.data.caption,
                     style: GoogleFonts.inter(
                       fontSize: 10,
                     ),
@@ -92,22 +89,12 @@ class RoomView extends GetView<RoomController> {
                     color: Colors.grey,
                   ),
                   SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    width: 320,
-                    height: 150,
-                    child: Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum semper arcu id tempus. Vestibulum elementum fringilla congue.  ',
-                      style: GoogleFonts.inter(
-                        fontSize: 13,
-                      ),
-                    ),
+                    height: 10,
                   ),
                   InkWell(
                     radius: 25,
                     onTap: (() {
-                      Get.toNamed(Routes.MAPS);
+                      Get.toNamed(Routes.MAPS, arguments: controller.data);
                     }),
                     child: Container(
                       width: 300,
@@ -116,11 +103,25 @@ class RoomView extends GetView<RoomController> {
                         color: Colors.blue,
                         image: DecorationImage(
                             image: NetworkImage(
-                                "https://maps.googleapis.com/maps/api/staticmap?center=29.390946,%2076.963502&zoom=12&size=600x300&maptype=normal&key=AIzaSyBTtOzSrDJ2PegkXBGdW4jdWt_wRFUz5oY&markers=color:red|29.390946,%2076.963502"),
+                                "https://maps.googleapis.com/maps/api/staticmap?center=" + controller.data.lat.toString() + "," + controller.data.lng.toString() + "&zoom=13&size=600x300&maptype=normal&key=AIzaSyBTtOzSrDJ2PegkXBGdW4jdWt_wRFUz5oY&markers=color:red|" + controller.data.lat.toString() + "," + controller.data.lng.toString()),
                             fit: BoxFit.cover),
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    width: 320,
+                    height: 150,
+                    child: Text(
+                      controller.data.description,
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                  
                   SizedBox(
                     height: 20,
                   ),
@@ -167,12 +168,15 @@ class RoomView extends GetView<RoomController> {
     );
   }
 
-  Row listRoom({img}) {
+  Row roomImage({img}) {
     return Row(
       children: [
+        SizedBox(
+          width: 10,
+        ),
         Container(
           width: 280,
-          height: 180,
+          height: 150,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.grey,
@@ -188,7 +192,7 @@ class RoomView extends GetView<RoomController> {
           ),
         ),
         SizedBox(
-          width: 20,
+          width: 10,
         )
       ],
     );

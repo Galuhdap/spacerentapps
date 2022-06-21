@@ -1,7 +1,10 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterfire_ui/database.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:spacerent_app/models/Room.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
@@ -140,7 +143,7 @@ class HomeView extends GetView<HomeController> {
               ],
             ),
             SizedBox(
-              height: 35,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 40, right: 33),
@@ -169,29 +172,18 @@ class HomeView extends GetView<HomeController> {
             Padding(
               padding: const EdgeInsets.only(left: 40),
               child: SizedBox(
-                height: 180, // constrain height
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: [
-                    listRooms(
-                        img: AssetImage("assets/img/room.jpeg"),
-                        txt: "Meeting Room 1"),
-                    SizedWidthList(),
-                    listRooms(
-                      img: AssetImage("assets/img/meet2.jpeg"),
-                      txt: "Meeting Room 2",
-                    ),
-                    SizedWidthList(),
-                    listRooms(
-                        img: AssetImage("assets/img/meet3.jpeg"),
-                        txt: "Meeting Room 3"),
-                    SizedWidthList(),
-                    listRooms(
-                        img: AssetImage("assets/img/meet4.jpeg"),
-                        txt: "Meeting Room 4"),
-                  ],
-                ),
-              ),
+                  height: 180, // constrain height
+                  child: FirebaseDatabaseListView(
+                      scrollDirection: Axis.horizontal,
+                      query: FirebaseDatabase.instance.ref('rooms'),
+                      itemBuilder: (context, snapshot) {
+                        Room room = Room.fromJson(new Map<String, dynamic>.from(
+                            snapshot.value as Map));
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: listRoom(room),
+                        );
+                      })),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 40, right: 42),
@@ -263,10 +255,10 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-  InkWell listRooms({txt, img}) {
+  InkWell listRoom(Room room) {
     return InkWell(
       onTap: () {
-        Get.toNamed(Routes.ROOM_LIST);
+        Get.toNamed(Routes.ROOM, arguments: room);
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -276,7 +268,7 @@ class HomeView extends GetView<HomeController> {
             height: 140,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: img,
+                image: NetworkImage(room.image_url),
                 fit: BoxFit.cover,
               ),
               color: Colors.grey,
@@ -295,7 +287,7 @@ class HomeView extends GetView<HomeController> {
             height: 10,
           ),
           Text(
-            txt,
+            room.title,
             style: GoogleFonts.inter(
               fontSize: 13,
               fontWeight: FontWeight.w400,
