@@ -59,54 +59,79 @@ class HomeView extends GetView<HomeController> {
                 Center(
                   child: Padding(
                     padding: EdgeInsets.only(top: 180),
-                    child: Container(
-                      width: 310,
-                      height: 95,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.2),
-                            offset: Offset(0, 2),
-                            blurRadius: 5,
-                            spreadRadius: 3,
-                          )
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 20, top: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'My Next Booking',
-                              style: GoogleFonts.inter(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
+                    child: InkWell(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(20.0))),
+                              backgroundColor:
+                                  Color.fromARGB(255, 255, 255, 255),
+                              content: Container(
+                                height: 220,
+                                width: 200,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage("assets/img/qr2.png"),
+                                      fit: BoxFit.cover),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Meeting Room 21',
-                              style: GoogleFonts.inter(
-                                fontSize: 17,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              '15 February 2020, 12.30 - 14.30',
-                              style: GoogleFonts.inter(
-                                fontSize: 11,
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
+                            );
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: 310,
+                        height: 95,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.2),
+                              offset: Offset(0, 2),
+                              blurRadius: 5,
+                              spreadRadius: 3,
+                            )
                           ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20, top: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'My Next Booking',
+                                style: GoogleFonts.inter(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Meeting Room 21',
+                                style: GoogleFonts.inter(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                '20 April 2022,  12.30 - 14.30',
+                                style: GoogleFonts.inter(
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

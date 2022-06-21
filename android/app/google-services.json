@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "769623703585",
+    "project_id": "space-rent-10908",
+    "storage_bucket": "space-rent-10908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:769623703585:android:89480a2beb84b756d02360",
+        "android_client_info": {
+          "package_name": "com.example.spacerent_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "769623703585-7a9qq5tonuns0dcinol6k9j6pn0q1n14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spacerent_app",
+            "certificate_hash": "cf4d8d83ec11ab175615d5499a553e416807caad"
+          }
+        },
+        {
+          "client_id": "769623703585-a4fg65cnqr0gqtte1f9gof4rqs7dtoh0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxRv1-INbH56GOVtVIGzo3Oysht1n7Jyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "769623703585-a4fg65cnqr0gqtte1f9gof4rqs7dtoh0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

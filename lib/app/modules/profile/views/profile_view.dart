@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spacerent_app/app/routes/app_pages.dart';
+import 'package:spacerent_app/utils/authentication.dart';
 
 import '../../login/views/login_view.dart';
 import '../controllers/profile_controller.dart';
@@ -24,10 +26,18 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             Text(
-              'Aldi Permana Etika ',
+              FirebaseAuth.instance.currentUser?.displayName.toString() ?? "",
               style: GoogleFonts.inter(
                 fontSize: 19,
                 color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              FirebaseAuth.instance.currentUser?.email.toString() ?? "@",
+              style: GoogleFonts.inter(
+                fontSize: 18,
+                color: Color.fromARGB(255, 0, 0, 0),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -35,7 +45,8 @@ class ProfileView extends GetView<ProfileController> {
               height: 30,
             ),
             MaterialButton(
-              onPressed: () {
+              onPressed: () async {
+                await Authentication.signOut();
                 Get.offAll(LoginView());
               },
               child: Container(

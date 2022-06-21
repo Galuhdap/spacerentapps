@@ -78,7 +78,7 @@ class BookingsView extends GetView<BookingsController> {
                   height: 5,
                 ),
                 Text(
-                  '15 Febuary 2020,  12.30 - 14.30',
+                  '20 April 2022,  12.30 - 14.30',
                   style: GoogleFonts.inter(
                     fontSize: 15,
                     color: Color.fromARGB(255, 0, 0, 0),
