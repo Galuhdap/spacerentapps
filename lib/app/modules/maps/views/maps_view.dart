@@ -27,18 +27,18 @@ class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
 
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(-6.200000, 106.816666),
-    zoom: 80.000,
+    target: LatLng(29.390946, 76.963502),
+    zoom: 13.0,
   );
 
   static final CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
-      target: LatLng(37.43296265331129, -122.08832357078792),
+      target: LatLng(29.390946, 76.963502),
       tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+      zoom: 13.0);
 
   List<Marker> _Marker = [
-    Marker(markerId: MarkerId("1"), position: LatLng(-7.1109753, 112.1626759))
+    Marker(markerId: MarkerId("1"), position: LatLng(29.390946, 76.963502))
   ];
 
   @override
@@ -56,10 +56,10 @@ class MapSampleState extends State<MapSample> {
         onPressed: () async {
           final GoogleMapController controller = await _controller.future;
           controller.animateCamera(
-              CameraUpdate.newLatLng(LatLng(-7.1109753, 112.1626759)));
+              CameraUpdate.newLatLng(LatLng(29.390946, 76.963502)));
         },
-        label: Text('To the lake!'),
-        icon: Icon(Icons.directions_boat),
+        label: Text('To the Room!'),
+        icon: Icon(Icons.room),
       ),
     );
   }
