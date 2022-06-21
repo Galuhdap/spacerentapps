@@ -96,16 +96,43 @@ class RoomView extends GetView<RoomController> {
                   ),
                   Container(
                     width: 320,
-                    height: 300,
+                    height: 250,
                     child: Text(
                       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque bibendum semper arcu id tempus. Vestibulum elementum fringilla congue. Sed justo ante, tincidunt at purus vel, tristique interdum massa. Pellentesque cursus tortor ut quam tempus dapibus. Aliquam quis pulvinar lorem. Sed eleifend, orci eget dictum facilisis, augue ligula feugiat nibh, eu malesuada sapien eros ut felis. Aenean imperdiet metus a tortor finibus, vitae malesuada lorem condimentum. Pellentesque scelerisque elit in sapien feugiat imperdiet. Aenean mollis nisi vel nisl iaculis semper. Pellentesque ultrices accumsan auctor. ',
                       style: GoogleFonts.inter(
-                        fontSize: 15,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    radius: 25,
+                    onTap: (() {}),
+                    child: Container(
+                      width: 200,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset("assets/img/mapsIcon.png"),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Text(
+                              "Cek Lokasi",
+                              style: GoogleFonts.inter(
+                                fontSize: 20,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 25,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
