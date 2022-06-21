@@ -11,6 +11,7 @@ import '../controllers/booking_from_controller.dart';
 class BookingFromView extends GetView<BookingFromController> {
   @override
   Widget build(BuildContext context) {
+    var ctrl = Get.put(BookingFromController());
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 20),
@@ -299,34 +300,38 @@ class BookingFromView extends GetView<BookingFromController> {
                 padding: const EdgeInsets.only(left: 10),
                 child: InkWell(
                   onTap: () {
-                    Get.toNamed(Routes.DASBOARD);
+                    ctrl.loading();
                   },
-                  child: Container(
-                    width: 290,
-                    height: 55,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
-                          offset: Offset(0.0, 4.0),
-                          blurRadius: 4,
-                          spreadRadius: 2,
-                        )
-                      ],
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Confirm Booking',
-                        style: GoogleFonts.inter(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: Obx(() => controller.isLoading.value
+                        ? CircularProgressIndicator(
+                            color: Colors.blue,
+                          ):
+                  Container(
+                                      width: 290,
+                                      height: 55,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blue,
+                                        borderRadius: BorderRadius.circular(20),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black.withOpacity(0.3),
+                                            offset: Offset(0.0, 4.0),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                          )
+                                        ],
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Confirm Booking',
+                                          style: GoogleFonts.inter(
+                                            fontSize: 15,
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    )),
                 ),
               ),
             ],

@@ -113,7 +113,7 @@ class RoomView extends GetView<RoomController> {
                   ),
                   Container(
                     width: 320,
-                    height: 150,
+                    height: 180,
                     child: Text(
                       controller.data.description,
                       style: GoogleFonts.inter(
@@ -123,7 +123,7 @@ class RoomView extends GetView<RoomController> {
                   ),
                   
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
