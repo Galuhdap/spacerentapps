@@ -25,7 +25,7 @@ class ProfileView extends GetView<ProfileController> {
                 borderRadius: BorderRadius.circular(50),
               ),
               child: CircleAvatar(
-                      backgroundImage: NetworkImage('https://i.pinimg.com/474x/a3/a3/5b/a3a35b22a7a32e71b6ef7e6a62c303c2.jpg'),
+                      backgroundImage: NetworkImage(FirebaseAuth.instance.currentUser?.photoURL ?? ""),
                       minRadius: 70,
                       maxRadius: 100,
               ),
@@ -56,18 +56,7 @@ class ProfileView extends GetView<ProfileController> {
               height: 10,
             ),
             Text(
-              FirebaseAuth.instance.currentUser?.email.toString() ?? "@",
-              style: GoogleFonts.inter(
-                fontSize: 18,
-                color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Text(
-             "Untuk DesCription",
+              "(" + (FirebaseAuth.instance.currentUser?.email.toString() ?? "") + ")",
               style: GoogleFonts.inter(
                 fontSize: 18,
                 color: Color.fromARGB(255, 0, 0, 0),
