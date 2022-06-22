@@ -109,9 +109,10 @@ class RoomView extends GetView<RoomController> {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   SizedBox(
+                    width: 310,
                     height: 180, // constrain height
                     child: ListView(children: [Text(
                       controller.data.description,
@@ -120,6 +121,7 @@ class RoomView extends GetView<RoomController> {
                       ),
                     ),],),
                   ),
+
                   SizedBox(
                     height: 10,
                   ),
