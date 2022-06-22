@@ -17,6 +17,22 @@ class ProfileView extends GetView<ProfileController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: CircleAvatar(
+                      backgroundImage: NetworkImage('https://i.pinimg.com/474x/a3/a3/5b/a3a35b22a7a32e71b6ef7e6a62c303c2.jpg'),
+                      minRadius: 70,
+                      maxRadius: 100,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Text(
               'Hallo',
               style: GoogleFonts.inter(
@@ -24,6 +40,9 @@ class ProfileView extends GetView<ProfileController> {
                 color: Colors.blue,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Text(
               FirebaseAuth.instance.currentUser?.displayName.toString() ?? "",
@@ -33,8 +52,22 @@ class ProfileView extends GetView<ProfileController> {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
             Text(
               FirebaseAuth.instance.currentUser?.email.toString() ?? "@",
+              style: GoogleFonts.inter(
+                fontSize: 18,
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Text(
+             "Untuk DesCription",
               style: GoogleFonts.inter(
                 fontSize: 18,
                 color: Color.fromARGB(255, 0, 0, 0),
