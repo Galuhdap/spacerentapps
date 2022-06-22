@@ -13,6 +13,7 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 97, 158, 208),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,7 +22,7 @@ class ProfileView extends GetView<ProfileController> {
               width: 100,
               height: 100,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color.fromARGB(255, 67, 65, 63),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: CircleAvatar(
@@ -37,7 +38,7 @@ class ProfileView extends GetView<ProfileController> {
               'Hallo',
               style: GoogleFonts.inter(
                 fontSize: 25,
-                color: Colors.blue,
+                color: Color.fromARGB(255, 255, 255, 255),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -48,7 +49,7 @@ class ProfileView extends GetView<ProfileController> {
               FirebaseAuth.instance.currentUser?.displayName.toString() ?? "",
               style: GoogleFonts.inter(
                 fontSize: 19,
-                color: Colors.black,
+                color: Color.fromARGB(255, 83, 68, 21),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -59,7 +60,7 @@ class ProfileView extends GetView<ProfileController> {
               "(" + (FirebaseAuth.instance.currentUser?.email.toString() ?? "") + ")",
               style: GoogleFonts.inter(
                 fontSize: 18,
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: Color.fromARGB(255, 129, 0, 0),
                 fontWeight: FontWeight.bold,
               ),
             ),

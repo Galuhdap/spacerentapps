@@ -109,19 +109,19 @@ class RoomView extends GetView<RoomController> {
                     ),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
-                  SizedBox(
-                    width: 310,
-                    height: 180, // constrain height
-                    child: ListView(children: [Text(
+                  Container(
+                    width: 320,
+                    height: 180,
+                    child: Text(
                       controller.data.description,
                       style: GoogleFonts.inter(
                         fontSize: 13,
                       ),
-                    ),],),
+                    ),
                   ),
-
+                  
                   SizedBox(
                     height: 10,
                   ),
