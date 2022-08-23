@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:spacerent_app/app/routes/app_pages.dart';
 import 'package:spacerent_app/models/Booking.dart';
 import 'package:spacerent_app/models/Room.dart';
+import 'package:spacerent_app/utils/notification_service.dart';
+import 'dart:convert';
 
 class BookingFromController extends GetxController {
   Room data = Get.arguments;
@@ -57,17 +59,33 @@ class BookingFromController extends GetxController {
 
     Future.delayed(Duration(seconds: 10), (() async {
       if (data.title == "Rome Space") {
-        await pushRef.update({
+        final updated = {
           "status": "rejected",
           "qr_code": "",
           "message": "Your booking has been rejected because the room is full",
-        });
+        };
+        await pushRef.update(updated);
+        final data = {
+          ...payload,
+          ...updated,
+        };
+        NotificationService().showNotifications(
+            "Order Confirmation",
+            "Sorry, your order to Rome Space is rejected. Click for details!",
+            json.encode(data));
       } else {
-        await pushRef.update({
+        final updated = {
           "status": "confirmed",
           "qr_code": DateTime.now().millisecondsSinceEpoch.toString(),
           "message": "Your booking has been confirmed",
-        });
+        };
+        await pushRef.update(updated);
+        final data = {
+          ...payload,
+          ...updated,
+        };
+        NotificationService().showNotifications("Order Confirmation",
+            "Your order has been confirmed, enjoy your rooms!", json.encode(data));
 
         final nextRef = FirebaseDatabase.instance.ref('nexts/' + user.uid);
         final snapshot = await nextRef.get();

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:spacerent_app/app/routes/app_pages.dart';
 import 'package:spacerent_app/utils/authentication.dart';
+import 'package:spacerent_app/utils/notification_service.dart';
 
 import '../../login/views/login_view.dart';
 import '../controllers/profile_controller.dart';
@@ -13,7 +14,6 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 97, 158, 208),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -26,20 +26,21 @@ class ProfileView extends GetView<ProfileController> {
                 borderRadius: BorderRadius.circular(50),
               ),
               child: CircleAvatar(
-                      backgroundImage: NetworkImage(FirebaseAuth.instance.currentUser?.photoURL ?? ""),
-                      minRadius: 70,
-                      maxRadius: 100,
+                backgroundImage: NetworkImage(
+                    FirebaseAuth.instance.currentUser?.photoURL ?? ""),
+                minRadius: 70,
+                maxRadius: 100,
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             Text(
-              'Hallo',
+              'Hello',
               style: GoogleFonts.inter(
                 fontSize: 25,
-                color: Color.fromARGB(255, 255, 255, 255),
-                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
@@ -48,20 +49,22 @@ class ProfileView extends GetView<ProfileController> {
             Text(
               FirebaseAuth.instance.currentUser?.displayName.toString() ?? "",
               style: GoogleFonts.inter(
-                fontSize: 19,
-                color: Color.fromARGB(255, 83, 68, 21),
-                fontWeight: FontWeight.bold,
+                fontSize: 25,
+                color: Colors.blueAccent,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 2,
             ),
             Text(
-              "(" + (FirebaseAuth.instance.currentUser?.email.toString() ?? "") + ")",
+              "( " +
+                  (FirebaseAuth.instance.currentUser?.email.toString() ?? "") +
+                  " )",
               style: GoogleFonts.inter(
                 fontSize: 18,
-                color: Color.fromARGB(255, 129, 0, 0),
-                fontWeight: FontWeight.bold,
+                color: Colors.lightBlue,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(

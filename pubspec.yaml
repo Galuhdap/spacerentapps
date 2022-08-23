@@ -2,30 +2,29 @@ name: spacerent_app
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
-  sdk: '>=2.16.0-134.1.beta <3.0.0'
+environment:
+  sdk: ">=2.16.0-134.1.beta <3.0.0"
 
-dependencies: 
+dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.1
   google_fonts: ^2.3.1
   google_maps_flutter: ^2.1.7
-  flutter: 
+  flutter:
     sdk: flutter
-
   google_sign_in: ^5.3.3
   firebase_core: ^1.12.0
   firebase_auth: ^3.3.8
   firebase_database: ^9.0.7
   flutterfire_ui: ^0.3.5
+  flutter_local_notifications: ^5.0.0+1
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^1.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
 
-flutter: 
+flutter:
   uses-material-design: true
   assets:
-  - assets/img/
-
+    - assets/img/

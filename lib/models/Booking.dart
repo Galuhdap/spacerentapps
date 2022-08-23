@@ -38,4 +38,13 @@ class Booking {
       rental_at: rental_at,
     );
   }
+
+  Map toJson() => {
+    'room' : room.toJson(),
+    'detail' : detail,
+    'status' : qr_code,
+    'qr_code' : message,
+    'booked_at' : booked_at,
+    'rental_at' : rental_at,
+  };
 }
